@@ -12,5 +12,7 @@ const between = (str,start,end)=>str.match(new RegExp(start+"(.*)"+end))[1];
 //const shortid = (n=7)=>Array.from(new Array(n*1),(v,i)=>'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_'[Math.floor(Math.random()*64)]).join('');
 const shortid = (n=8)=>Array.from(new Array(n*1),(v,i)=>'23456789abcdefghijkmnpqrstuvwxyz'[Math.floor(Math.random()*32)]).join('');
 
-const shortid = ()=>Math.random().toString(32).substr(2);    
+const shortid = ()=>Math.random().toString(32).substr(2);
+
+const hash = (str)=>[...str].reduce((acc, char)=>{acc = ((acc<<5)-acc)+char.charCodeAt(0);return acc&acc; }, 0).toString(32);
 
